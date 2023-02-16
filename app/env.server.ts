@@ -14,7 +14,7 @@ type ENV = ReturnType<typeof getEnv>;
 {
   /*
 global_variable (https://developer.mozilla.org/en-US/docs/Glossary/Global_variable)
-
+ad
 */
 }
 declare global {
