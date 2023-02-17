@@ -37,6 +37,8 @@ export function useMatchesData(
   id: string
 ): Record<string, unknown> | undefined {
   const matchingRoutes = useMatches();
+  console.log(matchingRoutes);
+
   const route = useMemo(
     () => matchingRoutes.find((route) => route.id === id),
     [matchingRoutes, id]
@@ -54,6 +56,12 @@ export function useOptionalUser(): User | undefined {
     return undefined;
   }
   return data.user;
+}
+export function useOptionalAdminUser(): User | null {
+  const user = useOptionalUser();
+  if (!user) return null;
+  if (user.email !== ENV.ADMIN_EMAIL) return null;
+  return user;
 }
 
 export function useUser(): User {
