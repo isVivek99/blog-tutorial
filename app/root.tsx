@@ -34,8 +34,6 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-  console.log(ENV);
-
   return json<LoaderData>({
     user: await getUser(request),
     ENV: getEnv(),
@@ -44,7 +42,6 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function App() {
   const data = useLoaderData();
-  console.log(ENV);
 
   return (
     <html lang="en" className="h-full">
